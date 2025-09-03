@@ -44,7 +44,7 @@ RUN curl -fsSL https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VER
 ENV BUILDIFIER_VERSION=6.4.0
 RUN OS=$(uname -s | tr '[:upper:]' '[:lower:]') && \
     ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/') && \
-    curl -fsSL https://github.com/bazelbuild/buildtools/releases/download/${BUILDIFIER_VERSION}/buildifier_${OS}_${ARCH} \
+    curl -fsSL https://github.com/bazelbuild/buildtools/releases/download/v${BUILDIFIER_VERSION}/buildifier_${OS}_${ARCH} \
       -o /usr/local/bin/buildifier && \
     chmod +x /usr/local/bin/buildifier
 
