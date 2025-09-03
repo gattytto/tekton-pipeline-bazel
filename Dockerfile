@@ -1,7 +1,7 @@
 # -----------------------------------------------
 #  Dockerfile: quay.io/gattytto/bazel-pipeline
 # -----------------------------------------------
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -14,9 +14,9 @@ RUN apt-get update && \
         unzip \
         git \
         openjdk-17-jdk \
-        python3.12 \
-        python3.12-venv \
-        python3.12-dev \
+        python3 \
+        python3-venv \
+        python3-dev \
         ca-certificates \
         && rm -rf /var/lib/apt/lists/*
 
