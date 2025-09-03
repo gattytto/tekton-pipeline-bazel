@@ -26,7 +26,7 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
 # -----------------------------------------------
 #  Install Go 1.22
 # -----------------------------------------------
-ENV GO_VERSION=1.22
+ENV GO_VERSION=1.25.0
 RUN curl -fsSL https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz | tar -xz -C /usr/local && \
     ln -s /usr/local/go/bin/go /usr/bin/go
 
