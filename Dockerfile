@@ -34,7 +34,7 @@ RUN curl -fsSL https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz | tar -x
 #  Install Bazel 6.5.0
 # -----------------------------------------------
 ENV BAZEL_VERSION=6.5.0
-RUN curl -fsSL https://github.com/bazelbuild/bazel/releases/download/v${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-linux-x86_64 \
+RUN curl -fsSL https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-linux-x86_64 \
       -o /usr/local/bin/bazel && \
     chmod +x /usr/local/bin/bazel
 
@@ -44,7 +44,7 @@ RUN curl -fsSL https://github.com/bazelbuild/bazel/releases/download/v${BAZEL_VE
 ENV BUILDIFIER_VERSION=6.4.0
 RUN OS=$(uname -s | tr '[:upper:]' '[:lower:]') && \
     ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/') && \
-    curl -fsSL https://github.com/bazelbuild/buildtools/releases/download/v${BUILDIFIER_VERSION}/buildifier_${OS}_${ARCH} \
+    curl -fsSL https://github.com/bazelbuild/buildtools/releases/download/${BUILDIFIER_VERSION}/buildifier_${OS}_${ARCH} \
       -o /usr/local/bin/buildifier && \
     chmod +x /usr/local/bin/buildifier
 
