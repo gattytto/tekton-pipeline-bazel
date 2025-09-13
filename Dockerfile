@@ -52,7 +52,6 @@ RUN OS=$(uname -s | tr '[:upper:]' '[:lower:]') && \
 # -----------------------------------------------
 #  Clean‑up (remove build‑time tools)
 # -----------------------------------------------
-RUN apt-get purge -y --auto-remove curl unzip git && \
-    rm -rf /var/lib/apt/lists/*
+RUN rm -rf /var/lib/apt/lists/*
 
 CMD ["/bin/bash"]
