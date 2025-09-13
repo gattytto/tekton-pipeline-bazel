@@ -52,6 +52,7 @@ RUN OS=$(uname -s | tr '[:upper:]' '[:lower:]') && \
 # -----------------------------------------------
 #  Clean‑up (remove build‑time tools)
 # -----------------------------------------------
-RUN rm -rf /var/lib/apt/lists/*
+RUN apt clean && \
+    rm -rf /var/lib/apt/lists/*
 
 CMD ["/bin/bash"]
