@@ -12,6 +12,9 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         wget \
         curl \
+        gcc \
+        build-essential \
+        g++ \
         unzip \
         git \
         openjdk-17-jdk \
