@@ -28,7 +28,7 @@ RUN apt-get update && \
         && rm -rf /var/lib/apt/lists/*
 
 # Make /usr/bin/python3 point to Python 3.12
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.13 1
 
 # -----------------------------------------------
 #  Install Go 
