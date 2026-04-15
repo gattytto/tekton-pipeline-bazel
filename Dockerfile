@@ -1,7 +1,7 @@
 # -----------------------------------------------
 #  Dockerfile: quay.io/gattytto/bazel-pipeline
 # -----------------------------------------------
-FROM ubuntu:24.04
+FROM ubuntu:25.10
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,6 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # -----------------------------------------------
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        libc-ares-dev \
         zip \
         musl-tools \
         wget \
@@ -30,24 +31,24 @@ RUN apt-get update && \
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
 
 # -----------------------------------------------
-#  Install Go 1.22
+#  Install Go 
 # -----------------------------------------------
-ENV GO_VERSION=1.25.0
+ENV GO_VERSION=1.26.0
 RUN curl -fsSL https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz | tar -xz -C /usr/local && \
     ln -s /usr/local/go/bin/go /usr/bin/go
 
 # -----------------------------------------------
-#  Install Bazel 6.5.0
+#  Install Bazel 
 # -----------------------------------------------
-ENV BAZEL_VERSION=6.5.0
+ENV BAZEL_VERSION=7.7.0
 RUN curl -fsSL https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-linux-x86_64 \
       -o /usr/local/bin/bazel && \
     chmod +x /usr/local/bin/bazel
 
 # -----------------------------------------------
-#  Install Buildifier 6.4.0
+#  Install Buildifier 
 # -----------------------------------------------
-ENV BUILDIFIER_VERSION=6.4.0
+ENV BUILDIFIER_VERSION=8.2.1
 RUN OS=$(uname -s | tr '[:upper:]' '[:lower:]') && \
     ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/') && \
     curl -fsSL https://github.com/bazelbuild/buildtools/releases/download/v${BUILDIFIER_VERSION}/buildifier-${OS}-${ARCH} \
